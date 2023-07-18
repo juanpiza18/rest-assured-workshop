@@ -1,8 +1,8 @@
 package com.restassured.examplespojo;
 
 public class Pokemon {
-    String name;
-    String url;
+    private String name;
+    private String url;
 
     public Pokemon() {
     }
