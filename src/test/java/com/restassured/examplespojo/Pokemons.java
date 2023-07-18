@@ -1,10 +1,10 @@
 package com.restassured.examplespojo;
 
 public class Pokemons {
-    int count;
-    String next;
-    String previous;
-    Pokemon[] results;
+    private int count;
+    private String next;
+    private String previous;
+    private Pokemon[] results;
 
     public Pokemons() {
     }
