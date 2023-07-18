@@ -19,7 +19,7 @@ public class GetAndPostExamples {
                 .statusCode(200)
                 .body("data[4].first_name", equalTo("George"))
                 .body("data.first_name", hasItems("George", "Rachel"));
-    }
+}
 
     @Test
     public void testPost() {
