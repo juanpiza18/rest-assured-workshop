@@ -1,7 +1,6 @@
 package com.restassured.test;
 
 import static io.restassured.RestAssured.*;
-import static io.restassured.matcher.RestAssuredMatchers.*;
 import static org.hamcrest.Matchers.*;
 
 import io.restassured.http.ContentType;
@@ -39,8 +38,7 @@ public class GetAndPostExample {
         when().
                 post("/users").
        then().
-                statusCode(201).
-                log().all();
+                statusCode(201);
     }
 
     @Test
@@ -50,11 +48,10 @@ public class GetAndPostExample {
         when()
                 .get("/pokemon/ditto")
         .then()
-                .statusCode(200).log().body();
+                .statusCode(200);
         // option 2
         Response response = get("/pokemon/ditto");
         Assert.assertEquals(response.statusCode(), 200);
-        System.out.println(response.getBody().asString());
 
     }
 }

@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import static org.hamcrest.Matchers.equalTo;
 
-public class RestAssuredAuthTest extends BaseClassAuth{
+public class RestAssuredAuthTest extends BaseClassAuth {
 
     @Test(priority = 0, description="Valid Authentication Scenario with valid username and password.")
     @Severity(SeverityLevel.BLOCKER)
