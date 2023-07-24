@@ -2,6 +2,8 @@ package com.restassured.test;
 
 import com.restassured.pojo.*;
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -16,16 +18,17 @@ public class AuthWithSessionTokenParseApi {
         RequestSpecBuilder builder = new RequestSpecBuilder();
         builder.addHeader("X-Parse-Application-Id", System.getenv("REST_APP_ID"));
         builder.addHeader("X-Parse-REST-API-Key", System.getenv("REST_APP_KEY"));
-        User user =
+        Response response =
                 given()
                         .spec(builder.build())
                         .queryParams(
                                 "username", "testjp001",
                                 "password", "testjp001")
+                        .header("Content-Type", "application/json")
                         .when()
-                        .get("login")
-                        .as(User.class);
-
+                        .get("login");
+        response.then().statusCode(200);
+        User user = response.as(User.class);
         builder.addHeader("X-Parse-Session-Token", user.getSessionToken());
         requestSpecification = builder.build();
     }
