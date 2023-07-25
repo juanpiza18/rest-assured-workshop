@@ -1,7 +1,6 @@
 package com.restassured.test;
 
 import static io.restassured.RestAssured.*;
-import static io.restassured.matcher.RestAssuredMatchers.*;
 import static org.hamcrest.Matchers.*;
 
 import io.restassured.http.ContentType;
@@ -16,7 +15,7 @@ public class GetAndPostExample {
         baseURI = "https://reqres.in/api";
         when()
                 .get("/users?page=2")
-        .then()
+                .then()
                 .statusCode(200)
                 .body("data.size()", is(6))
                 .body("data.first_name", hasItems("George", "Rachel"));
@@ -30,17 +29,16 @@ public class GetAndPostExample {
         request.put("name", "Ernesto Perez");
         request.put("job", "QA Automation");
 
-        baseURI =  "https://reqres.in/api";
+        baseURI = "https://reqres.in/api";
 
         given().
                 header("Content-Type", "application/json").
                 contentType(ContentType.JSON).
                 body(request.toJSONString()).
-        when().
+                when().
                 post("/users").
-       then().
-                statusCode(201).
-                log().all();
+                then().
+                statusCode(201);
     }
 
     @Test
@@ -49,12 +47,13 @@ public class GetAndPostExample {
         // Option 1
         when()
                 .get("/pokemon/ditto")
-        .then()
-                .statusCode(200).log().body();
+                .then()
+                .statusCode(200);
+        //.log().all();
         // option 2
         Response response = get("/pokemon/ditto");
         Assert.assertEquals(response.statusCode(), 200);
-        System.out.println(response.getBody().asString());
+        // System.out.println(response.getBody().asString());
 
     }
 }
