@@ -1,6 +1,8 @@
 package com.restassured.pojo;
 
-public class CreatedStudent extends BasePojo {
+import com.restassured.pojo.utils.BaseDTO;
+
+public class CreatedStudent extends BaseDTO {
     private String createdAt;
     private CreatedUser user;
 

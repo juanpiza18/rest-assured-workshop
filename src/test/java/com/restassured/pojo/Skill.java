@@ -1,6 +1,8 @@
 package com.restassured.pojo;
 
-public class Skill extends BasePojo {
+import com.restassured.pojo.utils.BaseDTO;
+
+public class Skill extends BaseDTO {
     private String name;
     private String description;
 

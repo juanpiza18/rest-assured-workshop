@@ -1,8 +1,8 @@
-package com.restassured.pojo;
+package com.restassured.pojo.utils;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-public class BasePojo {
+public class BaseDTO {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String objectId;
 

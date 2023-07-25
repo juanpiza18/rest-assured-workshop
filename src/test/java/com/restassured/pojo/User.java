@@ -2,10 +2,11 @@ package com.restassured.pojo;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.restassured.pojo.utils.BaseDTO;
 
 import java.util.Map;
 
-public class User extends BasePojo {
+public class User extends BaseDTO {
     private String username;
     private String email;
     private String createdAt;

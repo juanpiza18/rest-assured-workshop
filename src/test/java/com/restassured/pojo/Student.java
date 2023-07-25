@@ -1,10 +1,11 @@
 package com.restassured.pojo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.restassured.pojo.utils.BaseDTO;
 
 import java.util.List;
 
-public class Student extends BasePojo {
+public class Student extends BaseDTO {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String name;
     @JsonInclude(JsonInclude.Include.NON_NULL)

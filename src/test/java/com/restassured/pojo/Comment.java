@@ -1,6 +1,8 @@
 package com.restassured.pojo;
 
-public class Comment extends BasePojo {
+import com.restassured.pojo.utils.BaseDTO;
+
+public class Comment extends BaseDTO {
     private String studentId;
     private String comment;
 
